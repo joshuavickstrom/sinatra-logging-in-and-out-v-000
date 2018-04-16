@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'pry'
+
 describe 'ApplicationController' do
   describe "GET '/'" do
     it "returns a 200 status code" do
@@ -33,7 +33,6 @@ describe 'ApplicationController' do
         "username"=> "flatiron4lyfe", "password" => "Rubie!"
       }
       follow_redirect!
-      binding.pry
       expect(session[:user_id]).to eq(2)
     end
 
@@ -98,7 +97,7 @@ describe 'ApplicationController' do
       get '/logout'
       expect(session[:user_id]).to be(nil)
     end
-
+    
     it 'redirects to \'/\'' do
       get '/logout'
       follow_redirect!
