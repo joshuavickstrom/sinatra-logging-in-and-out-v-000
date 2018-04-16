@@ -33,6 +33,7 @@ describe 'ApplicationController' do
         "username"=> "flatiron4lyfe", "password" => "Rubie!"
       }
       follow_redirect!
+      binding.pry
       expect(session[:user_id]).to eq(2)
     end
 
