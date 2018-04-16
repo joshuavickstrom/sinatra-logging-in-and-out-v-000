@@ -18,7 +18,7 @@ class ApplicationController < Sinatra::Base
     binding.pry
     if @user != nil && @user.password == params[:password]
       binding.pry
-      session[:user_id] = @user_id
+      session[:user_id] = @user.id
       redirect '/account'
     else
       binding.pry
