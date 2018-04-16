@@ -1,5 +1,5 @@
 require_relative '../../config/environment'
-require 'pry'
+
 class ApplicationController < Sinatra::Base
   register Sinatra::ActiveRecordExtension
   configure do
@@ -15,13 +15,10 @@ class ApplicationController < Sinatra::Base
 
   post '/login' do
     @user = User.find_by(username: params["username"])
-    # binding.pry
     if @user != nil && @user.password == params[:password]
-      # binding.pry
       session[:user_id] = @user.id
       redirect '/account'
     else
-      # binding.pry
       erb :error
     end
   end
